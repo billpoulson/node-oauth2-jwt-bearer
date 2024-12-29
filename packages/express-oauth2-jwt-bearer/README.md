@@ -1,3 +1,9 @@
+---
+runme:
+  id: 01JG9G11APWPZ0AQHAH4SH44KC
+  version: v3
+---
+
 ![Authentication middleware for Express.js that validates JWT Bearer Access Tokens](https://cdn.auth0.com/website/sdks/banners/express-oauth2-jwt-bearer-banner.png)
 
 [![npm](https://img.shields.io/npm/v/express-oauth2-jwt-bearer.svg?style=flat)](https://www.npmjs.com/package/express-oauth2-jwt-bearer)
@@ -18,14 +24,15 @@
 
 This package supports the following tooling versions:
 
-- Node.js: `^12.19.0 || ^14.15.0 || ^16.13.0 || ^18.12.0 || ^20.2.0`
+- Node.js: `^12.19.0 || ^14.15.0 || ^16.13.0 || ^18.12.0 || ^20.2.0 || ^20.2.0`
 
 ### Installation
 
 Using [npm](https://npmjs.org) in your project directory run the following command:
 
-```shell
+```sh {"id":"01JG9G11AN5M6Q04CH1D7XE83J"}
 npm install express-oauth2-jwt-bearer
+
 ```
 
 ## Getting started
@@ -36,19 +43,21 @@ The library requires [issuerBaseURL](https://auth0.github.io/node-oauth2-jwt-bea
 
 #### Environment Variables
 
-```shell
+```sh {"id":"01JG9G11AN5M6Q04CH1GYKYSQC"}
 ISSUER_BASE_URL=https://YOUR_ISSUER_DOMAIN
 AUDIENCE=https://my-api.com
+
 ```
 
-```js
+```js {"id":"01JG9G11AN5M6Q04CH1KAHHBBS"}
 const { auth } = require('express-oauth2-jwt-bearer');
 app.use(auth());
+
 ```
 
 #### Library Initialization
 
-```js
+```js {"id":"01JG9G11AN5M6Q04CH1KTAGYTV"}
 const { auth } = require('express-oauth2-jwt-bearer');
 app.use(
   auth({
@@ -56,11 +65,12 @@ app.use(
     audience: 'https://my-api.com',
   })
 );
+
 ```
 
 #### JWTs signed with symmetric algorithms (eg `HS256`)
 
-```js
+```js {"id":"01JG9G11AN5M6Q04CH1NQ187QH"}
 const { auth } = require('express-oauth2-jwt-bearer');
 app.use(
   auth({
@@ -70,19 +80,21 @@ app.use(
     tokenSigningAlg: 'HS256',
   })
 );
+
 ```
 
 With this configuration, your api will require a valid Access Token JWT bearer token for all routes.
 
 Successful requests will have the following properties added to them:
 
-```js
+```js {"id":"01JG9G11AN5M6Q04CH1NZR9G53"}
 app.get('/api/messages', (req, res, next) => {
   const auth = req.auth;
   auth.header; // The decoded JWT header.
   auth.payload; // The decoded JWT payload.
   auth.token; // The raw JWT token.
 });
+
 ```
 
 ### Security Headers
